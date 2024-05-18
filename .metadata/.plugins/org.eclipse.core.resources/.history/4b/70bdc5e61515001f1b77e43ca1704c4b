@@ -1,4 +1,4 @@
-const stripe = Stripe('pk_live_51OU9oYG3807R4hwqQxH9An5ZjqKHOCYT9VyOVVDX1YP4pIt8ySNJEHkmXEAAdJD3OZbWRALaJXEyUPF2AfgBg3KH00PDLZPtDW');
+const stripe = Stripe('pk_test_51OU9oYG3807R4hwqMYu10IqlpmKqdfP3HkbdB6eVjS6rLB7f0y4xGBefyeZerMMksw9efBS0ugXCIGxvkYpq1nyW008CWyxm8f');
 const paymentButton = document.querySelector('#paymentButton');
 const updateButton = document.querySelector('#updateButton');
 

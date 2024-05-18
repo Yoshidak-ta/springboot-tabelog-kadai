@@ -46,7 +46,7 @@ public class StripeService {
 					.addLineItem(
 							SessionCreateParams.LineItem.builder()
 								.setQuantity(1L)
-								.setPrice("price_1PHmbYG3807R4hwqmO8lBMPK")
+								.setPrice("price_1PHlpEG3807R4hwqIh3PGdoj")
 								.build()
 								)
 					.build();
@@ -66,7 +66,6 @@ public class StripeService {
 		String requestUrl = new String(httpServletRequest.getRequestURL());
 		SessionCreateParams params = 
 				SessionCreateParams.builder()
-				
 					.setSuccessUrl(requestUrl.replaceAll("/login/mypage", "") + "/login/mypage?upgrade")
 					.setCancelUrl(requestUrl.replace("login/mypage", ""))
 					.setMode(SessionCreateParams.Mode.SUBSCRIPTION)
@@ -74,7 +73,7 @@ public class StripeService {
 					.addLineItem(
 							SessionCreateParams.LineItem.builder()
 								.setQuantity(1L)
-								.setPrice("price_1PHmbYG3807R4hwqmO8lBMPK")
+								.setPrice("price_1PHlpEG3807R4hwqIh3PGdoj")
 								.build()
 								)
 					.build();

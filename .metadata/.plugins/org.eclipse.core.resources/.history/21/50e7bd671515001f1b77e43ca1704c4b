@@ -46,7 +46,7 @@ public class StripeService {
 					.addLineItem(
 							SessionCreateParams.LineItem.builder()
 								.setQuantity(1L)
-								.setPrice("price_1PHmbYG3807R4hwqmO8lBMPK")
+								.setPrice("price_1PHmXUG3807R4hwqr5F5SJ5j")
 								.build()
 								)
 					.build();
@@ -74,7 +74,7 @@ public class StripeService {
 					.addLineItem(
 							SessionCreateParams.LineItem.builder()
 								.setQuantity(1L)
-								.setPrice("price_1PHmbYG3807R4hwqmO8lBMPK")
+								.setPrice("price_1PHmXUG3807R4hwqr5F5SJ5j")
 								.build()
 								)
 					.build();
