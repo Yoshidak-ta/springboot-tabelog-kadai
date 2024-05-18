@@ -1,0 +1,10 @@
+package com.example.tabelog_nagoyameshi.repository;
+
+public interface CategoryRepository extends JpaRepository<Category, Integer> {
+	public Category findByCategoryNameLike(String keyword);
+	public Category findByCategoryName(String categoryName);
+	
+	public Page<Category> findByCategoryNameLikeOrderByCategoryNameAsc(String keyword, Pageable pageable);
+	public Page<Category> findAllByOrderByCategoryNameAsc(Pageable pageable);
+
+}

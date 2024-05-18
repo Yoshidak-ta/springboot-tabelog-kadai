@@ -1,0 +1,8 @@
+package com.example.tabelog_nagoyameshi.form;
+
+@Data
+public class VerificationTokenEditForm {
+	@NotBlank(message = "メールアドレスを入力してください。")
+	private String email;
+
+}

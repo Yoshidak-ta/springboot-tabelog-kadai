@@ -1,0 +1,5 @@
+package com.example.tabelog_nagoyameshi.entity;
+
+public class Type {
+
+}

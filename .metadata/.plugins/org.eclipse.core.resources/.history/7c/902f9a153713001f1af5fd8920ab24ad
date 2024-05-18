@@ -1,0 +1,12 @@
+package com.example.tabelog_nagoyameshi.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CardRepository extends JpaRepository<Card, Integer> {
+	public Card findByUser(User user);
+	public Card findBySubscriptionId(String subscriptionId);
+	
+	@Transactional
+	public Integer deleteBySubscriptionId(String subscriptionId);
+
+}

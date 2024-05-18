@@ -1,0 +1,27 @@
+package com.example.tabelog_nagoyameshi.repository;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.tabelog_nagoyameshi.entity.Category;
+import com.example.tabelog_nagoyameshi.entity.Store;
+
+public interface StoreRepository extends JpaRepository<Store, Integer> {
+	public Page<Store> findByShopNameLikeOrAlphabetLikeOrFuriganaLikeOrderByCreatedAtDesc(String shopNameKeyword, String alphabetKeyword, String furiganaKeyword, Pageable pageable);
+	public Page<Store> findByShopNameLikeOrAlphabetLikeOrFuriganaLikeOrderByMinimumBudgetAsc(String shopNameKeyword, String alphabetKeyword, String furiganaKeyword, Pageable pageable);
+	public Page<Store> findByShopNameLikeOrAlphabetLikeOrFuriganaLikeOrderByFuriganaAsc(String shopNameKeyword, String alphabetKeyword, String furiganaKeyword, Pageable pageable);
+	
+	public Page<Store> findByCategoryOrderByCreatedAtDesc(Category category, Pageable pageable);
+	public Page<Store> findByCategoryOrderByMinimumBudgetAsc(Category category, Pageable pageable);
+	public Page<Store> findByCategoryOrderByFuriganaAsc(Category category, Pageable pageable);
+	
+	public Page<Store> findByMinimumBudgetLessThanEqualOrderByCreatedAtDesc(Integer price, Pageable ageable);
+	public Page<Store> findByMinimumBudgetLessThanEqualOrderByMinimumBudgetAsc(Integer price, Pageable ageable);
+	public Page<Store> findByMinimumBudgetLessThanEqualOrderByFuriganaAsc(Integer price, Pageable ageable);
+	
+	public Page<Store> findAllByOrderByCreatedAtDesc(Pageable ageable);
+	public Page<Store> findAllByOrderByMinimumBudgetAsc(Pageable ageable);
+	public Page<Store> findAllByOrderByFuriganaAsc(Pageable ageable);
+
+}

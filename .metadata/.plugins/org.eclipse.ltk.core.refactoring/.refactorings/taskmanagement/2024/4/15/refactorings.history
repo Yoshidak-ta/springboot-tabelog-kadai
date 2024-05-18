@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;HomeController.java&apos; to &apos;taskmanagement/src/main/java/com.example.taskmanagement.controller&apos;&#x0D;&#x0A;- 元のプロジェクト: &apos;taskmanagement&apos;&#x0D;&#x0A;- 宛先要素: &apos;taskmanagement/src/main/java/com.example.taskmanagement.controller&apos;&#x0D;&#x0A;- オリジナル要素: &apos;com.example.taskmanagement.HomeController.java&apos;&#x0D;&#x0A;- リファクタリングされた要素の参照を更新" description="コンパイル単位を移動" destination="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.example.taskmanagement.controller" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.example.taskmanagement{HomeController.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1712980396005" units="1" version="1.0"/>
+</session>

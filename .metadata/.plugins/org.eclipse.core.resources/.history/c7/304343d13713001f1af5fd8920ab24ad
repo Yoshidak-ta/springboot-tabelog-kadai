@@ -1,0 +1,6 @@
+package com.example.tabelog_nagoyameshi.repository;
+
+public interface TypeRepository extends JpaRepository<Type, Integer> {
+	public Type findByTypeNameJp(String typeNameJp);
+
+}

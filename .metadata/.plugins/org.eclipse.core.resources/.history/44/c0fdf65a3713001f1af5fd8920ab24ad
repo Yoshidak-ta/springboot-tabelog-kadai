@@ -1,0 +1,11 @@
+package com.example.tabelog_nagoyameshi.repository;
+public interface FavoriteRepository extends JpaRepository<Favorite, Integer> {
+	public List<Favorite> findByShop(Shop shop);
+	public Page<Favorite> findByUser(User user, Pageable pageable);
+	
+	@Transactional
+	public void deleteByShopIdAndUserId(Integer shopId, Integer userId);
+	
+	public Favorite getByShopIdAndUserId(Integer shopId, Integer userId);
+
+}

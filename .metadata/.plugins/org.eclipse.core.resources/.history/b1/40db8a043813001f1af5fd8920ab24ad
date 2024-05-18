@@ -1,0 +1,7 @@
+package com.example.tabelog_nagoyameshi.repository;
+
+public interface VerificationTokenRepository extends JpaRepository<VerificationToken, Integer> {
+	public VerificationToken findByToken(String token);
+	public VerificationToken findByUser(User user);
+
+}

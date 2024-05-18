@@ -1,0 +1,24 @@
+package com.example.tabelog_nagoyameshi.security;
+
+@Service
+public class UserDetailsServiceImpl implements UserDetailsService {
+	private final UserRepository userRepository;
+	
+	public UserDetailsServiceImpl(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
+	
+	@Override
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException{
+		try {
+			User user = userRepository.findByEmail(email);
+			String userTypeName = user.getType().getTypeNameEn();
+			Collection<GrantedAuthority> authorities = new ArrayList<>();
+			authorities.add(new SimpleGrantedAuthority(userTypeName));
+			return new UserDetailsImpl(user, authorities);
+		}catch(Exception e){
+			throw new UsernameNotFoundException("ユーザーが見つかりませんでした。");
+		}
+	}
+
+}

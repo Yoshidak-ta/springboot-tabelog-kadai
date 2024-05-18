@@ -1,0 +1,12 @@
+package com.example.tabelog_nagoyameshi.form;
+
+@Data
+@AllArgsConstructor
+public class CardEditForm {
+	@NotBlank(message = "メールアドレスを記入してください。")
+	private String email;
+	
+	@NotBlank
+	private String customerId;
+
+}

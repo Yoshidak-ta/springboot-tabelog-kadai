@@ -1,0 +1,12 @@
+package com.example.tabelog_nagoyameshi.form;
+
+@Data
+@AllArgsConstructor
+public class CategoryEditForm {
+	@NotNull
+	private Integer id;
+	
+	@NotNull
+	private String categoryName;
+
+}

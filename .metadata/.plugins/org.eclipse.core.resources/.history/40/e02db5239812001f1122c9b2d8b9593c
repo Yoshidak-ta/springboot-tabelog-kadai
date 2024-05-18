@@ -1,0 +1,5 @@
+package com.example.tabelog_nagoyameshi.controller;
+
+public class AdminAppsController {
+
+}

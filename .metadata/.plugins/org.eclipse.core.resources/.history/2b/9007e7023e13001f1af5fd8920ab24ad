@@ -1,0 +1,51 @@
+package com.example.tabelog_nagoyameshi.security;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import com.example.tabelog_nagoyameshi.entity.User;
+import com.example.tabelog_nagoyameshi.repository.UserRepository;
+
+@Configuration
+@EnableWebSecurity
+@EnableMethodSecurity
+public class WebSecurityConfig {
+	@Bean
+	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+		http
+			.authorizeHttpRequests((requests) -> requests
+					.requestMatchers("/css/**", "/images/**", "/js/**", "/storage/**", "/", "/signup/**", "/reset/**", "/reset/token/**", "/?loggedIn", "/login/{id}", "/login/mypage", "/login/mypage/edit", "/stripe/webhook").permitAll()
+					.requestMatchers("/paidUser/**").hasRole("PAIDUSER")
+					.requestMatchers("/adminShop/**").hasRole("ADMINSHOP")
+					.requestMatchers("/adminApps/**").hasRole("ADMINAPPS")
+					.anyRequest().authenticated()
+					)
+			.formLogin((form) -> form
+					.loginPage("/")
+					.loginProcessingUrl("/")
+					.defaultSuccessUrl("/login?loggedIn")
+					.failureUrl("/?error")
+					.permitAll()
+					)
+			.logout((logout) -> logout
+					.logoutSuccessUrl("/?loggedOut")
+					.permitAll()
+					)
+			.csrf().ignoringRequestMatchers("/stripe/webhook");
+		
+		return http.build();
+	}
+	
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+
+}
