@@ -1,0 +1,5 @@
+package com.example.tabelog_nagoyameshi.repository;
+
+public class TopImageRepository {
+
+}

@@ -12,20 +12,20 @@
 			<!--ヘッダー-->
 			<div th:replace="~{fragment :: header}"></div>
 			
-			<div th:if="${createSuccessMessage}" class="alert alert-info">
-				<span th:text="${createSuccessMessage}"></span>
-			</div>
-			
-			<div th:if="${updateSuccessMessage}" class="alert alert-info">
-				<span th:text="${updateSuccessMessage}"></span>
-			</div>
-			
-			<div th:if="${deleteSuccessMessage}" class="alert alert-info">
-				<span th:text="${deleteSuccessMessage}"></span>
-			</div>
-			
 			<main>
 				<div class="container pt-4 pb-5 nagoyameshi-container">
+					<div th:if="${createSuccessMessage}" class="alert alert-info">
+        				<span th:text="${createSuccessMessage}"></span>
+		    	    </div>
+			
+    			    <div th:if="${updateSuccessMessage}" class="alert alert-info">
+	    			    <span th:text="${updateSuccessMessage}"></span>
+		        	</div>
+			
+        			<div th:if="${deleteSuccessMessage}" class="alert alert-info">
+		        		<span th:text="${deleteSuccessMessage}"></span>
+			        </div>
+			        
 					<div class="row justify-content-center">
 						<nav class="my-3" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
 							<ol class="breadcrumb mb-0">
@@ -36,26 +36,32 @@
 						
 						<h1 class="mb-3 text-center">予約一覧</h1>
 						
-						<table class="table">
-							<thead>
-								<tr>
-									<th scope="col">店名</th>
-									<th scope="col">予約日</th>
-									<th scope="col">予約時間</th>
-									<th scope="col">人数</th>
-									<th scope="col"></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr th:each="reservation : ${reservationPage}">
-									<td th:text="${reservation.getStore().getStoreName()}"></td>
-									<td th:text="${reservation.getBookingDate()}"></td>
-									<td th:text="${reservation.getBookingTime()}"></td>
-									<td th:text="${reservation.getNumberOfPeople() + '名'}"></td>
-									<td><a th:href="@{/login/reservations/__${reservation.getId()}__}">予約変更・キャンセル</a></td>
-								</tr>
-							</tbody>
-						</table>
+						<div th:if="${reservationList.isEmpty()}" class="d-flex justify-content-center pt-4 border-top">
+							<h2 class="text-center fw-bold">予約はありません</h2>
+						</div>
+						
+						<div th:unless="${reservationList.isEmpty()}">
+						    <table class="table">
+							    <thead>
+								    <tr>
+									    <th scope="col">店名</th>
+    									<th scope="col">予約日</th>
+	    								<th scope="col">予約時間</th>
+		    							<th scope="col">人数</th>
+			    						<th scope="col"></th>
+				    				</tr>
+					    		</thead>
+						    	<tbody>
+							    	<tr th:each="reservation : ${reservationPage}">
+								    	<td th:text="${reservation.getStore().getStoreName()}"></td>
+									    <td th:text="${reservation.getBookingDate()}"></td>
+    									<td th:text="${reservation.getBookingTime()}"></td>
+	    								<td th:text="${reservation.getNumberOfPeople() + '名'}"></td>
+		    							<td><a th:href="@{/login/reservations/__${reservation.getId()}__}">予約変更・キャンセル</a></td>
+			    					</tr>
+				    			</tbody>
+					    	</table>
+						</div>
 					</div>
 				</div>
 				

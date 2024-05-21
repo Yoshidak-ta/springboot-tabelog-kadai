@@ -1,5 +1,7 @@
 package com.example.tabelog_nagoyameshi.controller;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
@@ -43,8 +45,10 @@ public class ReviewController {
 	public String reviews(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, @PageableDefault(page = 0, size = 10, sort = "id", direction = Direction.ASC)Pageable pageable, Model model) {
 		User user = userDetailsImpl.getUser();
 		
+		List<Review> reviewList = reviewRepository.findByUser(user);
 		Page<Review> newReview = reviewRepository.findByUserOrderByUpdatedAtDesc(user, pageable);
 		
+		model.addAttribute("reviewList", reviewList);
 		model.addAttribute("newReview", newReview);
 		
 		return "prime/reviews/index";

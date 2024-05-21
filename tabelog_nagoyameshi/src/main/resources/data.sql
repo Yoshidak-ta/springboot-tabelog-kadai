@@ -15,7 +15,7 @@ INSERT IGNORE INTO categories(id, category_name)VALUE(11, '小倉トースト');
 INSERT IGNORE INTO roles(id, role_name_1, role_name_2)VALUE(1, 'ROLE_GENERAL', '無料会員');
 INSERT IGNORE INTO roles(id, role_name_1, role_name_2)VALUE(2, 'ROLE_PRIME', '有料会員');
 INSERT IGNORE INTO roles(id, role_name_1, role_name_2)VALUE(3, 'ROLE_ADMIN_STORE', '店舗管理者');
-INSERT IGNORE INTO roles(id, role_name_1, role_name_2)VALUE(4, 'ROLE_ADMIN_APPS', 'アプリ管理者');
+INSERT IGNORE INTO roles(id, role_name_1, role_name_2)VALUE(4, 'ROLE_ADMIN_SITE', 'サイト管理者');
 
 --usersテーブル
 INSERT IGNORE INTO users(id, user_name, furigana, phone_number, email, password, user_role_id, enabled)VALUE(1, '吉本　太郎', 'ヨシモト　タロウ', '090-5325-5143', 'taro.yoshimoto@nagoya.meshi.com', '$2a$10$2JNjTwZBwo7fprL2X4sv.OEKqxnVtsVQvuXDkI8xVGix.U3W5B7CO', 1, true);
@@ -59,17 +59,17 @@ INSERT IGNORE INTO reserves(id, user_id, store_id, booking_date, booking_time, n
 INSERT IGNORE INTO reserves(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(12, 2, 1, '2024-06-01', '17:00', 4);
 
 --reviewsテーブル
-INSERT IGNORE INTO reviews(id, user_id, store_id, stars, review_comment)VALUE(1, 1, 1, '★★★★★', '雰囲気のいいカフェでした。');
+INSERT IGNORE INTO reviews(id, user_id, store_id, stars, review_comment)VALUE(1, 1, 1, '★★★☆☆', '雰囲気のいいカフェでした。');
 INSERT IGNORE INTO reviews(id, user_id, store_id, stars, review_comment)VALUE(2, 1, 2, '★★★★★', 'おいしかったです。');
-INSERT IGNORE INTO reviews(id, user_id, store_id, stars, review_comment)VALUE(3, 1, 3, '★★★★★', 'よかったです。');
-INSERT IGNORE INTO reviews(id, user_id, store_id, stars, review_comment)VALUE(4, 1, 4, '★★★★★', 'よかったです。');
-INSERT IGNORE INTO reviews(id, user_id, store_id, stars, review_comment)VALUE(5, 1, 5, '★★★★★', '雰囲気のいいカフェでした。');
-INSERT IGNORE INTO reviews(id, user_id, store_id, stars, review_comment)VALUE(6, 1, 6, '★★★★★', '雰囲気のいいカフェでした。');
-INSERT IGNORE INTO reviews(id, user_id, store_id, stars, review_comment)VALUE(7, 1, 7, '★★★★★', '雰囲気のいいカフェでした。');
-INSERT IGNORE INTO reviews(id, user_id, store_id, stars, review_comment)VALUE(8, 1, 8, '★★★★★', '雰囲気のいいカフェでした。');
-INSERT IGNORE INTO reviews(id, user_id, store_id, stars, review_comment)VALUE(9, 1, 9, '★★★★★', '雰囲気のいいカフェでした。');
-INSERT IGNORE INTO reviews(id, user_id, store_id, stars, review_comment)VALUE(10, 1, 10, '★★★★★', '雰囲気のいいカフェでした。');
-INSERT IGNORE INTO reviews(id, user_id, store_id, stars, review_comment)VALUE(11, 1, 11, '★★★★★', '雰囲気のいいカフェでした。');
+INSERT IGNORE INTO reviews(id, user_id, store_id, stars, review_comment)VALUE(3, 1, 3, '★☆☆☆☆', 'よかったです。');
+INSERT IGNORE INTO reviews(id, user_id, store_id, stars, review_comment)VALUE(4, 1, 4, '★★★☆☆', 'また行きたい。');
+INSERT IGNORE INTO reviews(id, user_id, store_id, stars, review_comment)VALUE(5, 1, 5, '★★★★☆', 'ありがとうございました。');
+INSERT IGNORE INTO reviews(id, user_id, store_id, stars, review_comment)VALUE(6, 1, 6, '★★★☆☆', 'また行きます。');
+INSERT IGNORE INTO reviews(id, user_id, store_id, stars, review_comment)VALUE(7, 1, 7, '★★★★★', '店員さんが良かった');
+INSERT IGNORE INTO reviews(id, user_id, store_id, stars, review_comment)VALUE(8, 1, 8, '★★★★★', '料理が最高でした。');
+INSERT IGNORE INTO reviews(id, user_id, store_id, stars, review_comment)VALUE(9, 1, 9, '★★★★☆', '雰囲気が好きでした。');
+INSERT IGNORE INTO reviews(id, user_id, store_id, stars, review_comment)VALUE(10, 1, 10, '★★★★☆', 'ありがとうございました。');
+INSERT IGNORE INTO reviews(id, user_id, store_id, stars, review_comment)VALUE(11, 1, 11, '★★★★★', 'いいカフェでした。');
 INSERT IGNORE INTO reviews(id, user_id, store_id, stars, review_comment)VALUE(12, 2, 1, '★★★☆☆', 'おいしかったです。');
 
 --favoritesテーブル

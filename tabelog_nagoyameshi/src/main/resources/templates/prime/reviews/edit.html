@@ -42,8 +42,8 @@
 									</div>
 									<div class="col-md-8">
 										<div th:if="${#fields.hasErrors('stars')}" class="text-danger small mb-2" th:errors="*{stars}"></div>
-										<select name="stars" th:field="*{stars}">
-											<option value="" hidden>選択してください</option>
+										<select class="nagoyameshi-star" name="stars" th:field="*{stars}">
+											<option value="" hidden></option>
 											<option value="☆☆☆☆☆" th:selected="${stars == '&#9734&#9734&#9734&#9734&#9734'}">&#9734&#9734&#9734&#9734&#9734</option>
 											<option value="★☆☆☆☆" th:selected="${stars == '&#9733&#9734&#9734&#9734&#9734'}">&#9733&#9734&#9734&#9734&#9734</option>
 											<option value="★★☆☆☆" th:selected="${stars == '&#9733&#9733&#9734&#9734&#9734'}">&#9733&#9733&#9734&#9734&#9734</option>
@@ -57,7 +57,7 @@
 								<div class="form-group row mb-3">
 									<div class="col-md-4">
 										<label for="reviewComment">
-											<div class="d-flex align-items-center">
+											<div class="d-flex align-items-center fw-bold">
 												<span class="me-1">評価コメント</span>
 												<span class="badge bg-danger">必須</span>
 											</div>
@@ -69,29 +69,12 @@
 									</div>
 								</div>
 								
-								<div class="form-group row mb-3">
-									<div class="col-md-4">
-										<label for="imageFile">
-											<div class="d-flex align-items-center">
-												<span class="me-1">写真</span>
-											</div>
-										</label>
-									</div>
-									<div class="col-md-8">
-										<div th:if="${#fields.hasErrors('photoName')}" class="text-danger small mb-2" th:errors="*{photoName}"></div>
-										<input type="file" class="form-control" th:field="*{photoName}">
-									</div>
-								</div>
-								
-								<!--選択された画像の表示場所-->
-								<div class="row" id="imagePreview"></div>
-								
-								<div>
+								<div class="d-flex justify-content-center">
 									<button type="submit" class="btn text-white shadow-sm w-100 nagoyameshi-btn">更新する</button>
 								</div>
 							</form>
 							
-							<a href="#" data-bs-toggle="modal" th:data-bs-target="${'#deleteReviewModalLabel'}" class="text-center nagoyameshi-link-danger">レビュー削除</a>
+							<a href="#" data-bs-toggle="modal" th:data-bs-target="${'#deleteReviewModalLabel'}" class="d-flex justify-content-center pt-2 fw-bold nagoyameshi-link-danger">レビュー削除</a>
 								
 							<!--削除用モーダル-->
 							<div class="modal fade" th:id="${'deleteReviewModalLabel'}" tabindex="-1" th:aria-labelledby="${'deleteReviewModalLabel'}">

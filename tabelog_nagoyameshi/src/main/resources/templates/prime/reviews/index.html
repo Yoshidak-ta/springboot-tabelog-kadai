@@ -12,18 +12,6 @@
 			<!--ヘッダー-->
 			<div th:replace="~{fragment :: header}"></div>
 			
-			<div th:if="${createSuccessMessage}" class="alert alert-info">
-				<span th:text="${createSuccessMessage}"></span>
-			</div>
-			
-			<div th:if="${updateSuccessMessage}" class="alert alert-info">
-				<span th:text="${updateSuccessMessage}"></span>
-			</div>
-			
-			<div th:if="${deleteSuccessMessage}" class="alert alert-info">
-				<span th:text="${deleteSuccessMessage}"></span>
-			</div>
-			
 			<main>
 				<div class="container pt-4 pb-5 nagoyameshi-container">
 					<div class="row justify-content-center">
@@ -35,6 +23,9 @@
 						</nav>
 						
 						<h1 class="mb-4 text-center">レビュー一覧</h1>
+						
+						<hr class="pt-2">
+						
 						<div th:if="${createSuccessMessage}" class="alert alert-info">
 							<div th:text="${createSuccessMessage}"></div>
 						</div>
@@ -45,26 +36,39 @@
 							<div th:text="${deleteSuccessMessage}"></div>
 						</div>
 						
-						<div>
-							<div class="row row-cols-lg-5 row-cols-2 g-3 mb-5">
-								<div class="col" th:each="review : ${newReview}">
+						<div th:if="${reviewList.isEmpty()}" class="d-flex justify-content-center">
+							<h2 class="text-center fw-bold">レビューはありません</h2>
+						</div>
+						
+						<div th:unless="${reviewList.isEmpty()}">
+<!--							<div class="row row-cols-lg-5 row-cols-2 g-3 mb-5">-->
+								<div class="mb-3" th:each="review : ${newReview}">
 									<a th:href="@{/login/reviews/__${review.getId()}__}" class="link-dark nagoyameshi-card-link">
 										<div class="card h-100">
-<!--											<img th:if="${review.getPhotoName()}" th:src="@{/storage/__${review.getPhotoName()}__}" class="w-100" alt="レストラン画像">-->
-<!--											<img th:unless="${review.getPhotoName()}" th:src="@{/images/noImage.png}" class="w-100" alt="NO IMAGE">-->
-											<div class="card-body">
-												<h3 class="card-title mb-3" th:text="${review.getStore().getStoreName()}"></h3>
+											<div class="row g-0">
+    											<div class="col-md-4">
+	    											<img th:if="${review.getStore().getPhotoName()}" th:src="@{/images/stores/__${review.getStore().getPhotoName()}__}" class="card-img-top nagoyaeshi-horizontal-card-image" alt="店舗画像">
+		    										<img th:unless="${review.getStore().getPhotoName()}" th:src="@{/images/noImage.jpg}" class="card-img-top ngoyameshi-horizontal-card-image" alt="NO IMAGE">
+				    							</div>
+					    						<div class="col-md-8">
+						    						<div class="card-body">
+							    						<h3 class="card-title mb-3" th:text="${review.getStore().getStoreName()}"></h3>
+													
+								    					<hr class="mb-3">
+            						    
+            						    				<p class="card-text mb-2">
+			            				    				<span class="nagoyameshi-star" th:text="${review.getStars()}"></span>
+						            		    		</p>
+            									    	<p class="card-text mb-2">
+			            							    	<span th:text="${review.getReviewComment()}"></span>
+    						           					</p>
+            										</div>
+		    									</div>
 											</div>
-											<p class="card-text mb-2">
-												<span th:text="${review.getStars()}"></span>
-											</p>
-											<p class="card-text mb-2">
-												<span th:text="${review.getReviewComment()}"></span>
-											</p>
 										</div>
 									</a>
 								</div>
-							</div>
+<!--							</div>-->
 						</div>
 					</div>
 				</div>

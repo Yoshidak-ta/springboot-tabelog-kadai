@@ -1,5 +1,7 @@
 package com.example.tabelog_nagoyameshi.controller;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
@@ -41,10 +43,12 @@ public class FavoriteController {
 	@GetMapping("/favorites")
 	public String favorites(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl,@PageableDefault(page = 0, size = 10, sort = "id", direction = Direction.ASC)Pageable pageable, Model model, HttpSession httpSession) {
 		User user = userDetailsImpl.getUser();
+		List<Favorite> favoriteList = favoriteRepository.findByUser(user);
 		Page<Favorite> favoritesPage = favoriteRepository.findByUser(user, pageable);
 		httpSession.setAttribute("favoriteStore", storeRepository.findAll());
 		
 		model.addAttribute("user", user);
+		model.addAttribute("favoriteList", favoriteList);
 		model.addAttribute("favoritesPage", favoritesPage);
 		
 		return "prime/favorites/index";

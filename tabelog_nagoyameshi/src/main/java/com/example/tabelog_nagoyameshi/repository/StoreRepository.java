@@ -16,9 +16,9 @@ public interface StoreRepository extends JpaRepository<Store, Integer> {
 	public Page<Store> findByCategoryOrderByMinimumBudgetAsc(Category category, Pageable pageable);
 	public Page<Store> findByCategoryOrderByFuriganaAsc(Category category, Pageable pageable);
 	
-	public Page<Store> findByMinimumBudgetLessThanEqualOrderByCreatedAtDesc(Integer price, Pageable ageable);
-	public Page<Store> findByMinimumBudgetLessThanEqualOrderByMinimumBudgetAsc(Integer price, Pageable ageable);
-	public Page<Store> findByMinimumBudgetLessThanEqualOrderByFuriganaAsc(Integer price, Pageable ageable);
+	public Page<Store> findByMaximumBudgetLessThanEqualOrderByCreatedAtDesc(Integer price, Pageable ageable);
+	public Page<Store> findByMaximumBudgetLessThanEqualOrderByMinimumBudgetAsc(Integer price, Pageable ageable);
+	public Page<Store> findByMaximumBudgetLessThanEqualOrderByFuriganaAsc(Integer price, Pageable ageable);
 	
 	public Page<Store> findAllByOrderByCreatedAtDesc(Pageable ageable);
 	public Page<Store> findAllByOrderByMinimumBudgetAsc(Pageable ageable);

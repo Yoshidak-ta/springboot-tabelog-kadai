@@ -16,7 +16,7 @@ import com.example.tabelog_nagoyameshi.entity.VerificationToken;
 import com.example.tabelog_nagoyameshi.event.ResetEventPublisher;
 import com.example.tabelog_nagoyameshi.event.SignupEventPublisher;
 import com.example.tabelog_nagoyameshi.form.PasswordResetForm;
-import com.example.tabelog_nagoyameshi.form.UserRegisterForm;
+import com.example.tabelog_nagoyameshi.form.SignupForm;
 import com.example.tabelog_nagoyameshi.form.VerificationTokenEditForm;
 import com.example.tabelog_nagoyameshi.repository.UserRepository;
 import com.example.tabelog_nagoyameshi.repository.VerificationTokenRepository;
@@ -55,7 +55,7 @@ public class AuthController {
 	//会員登録画面
 	@GetMapping("/signup")
 	public String signup(Model model) {
-		model.addAttribute("signupForm", new UserRegisterForm());
+		model.addAttribute("signupForm", new SignupForm());
 		return "auth/signup";
 	}
 	
@@ -106,7 +106,7 @@ public class AuthController {
 	
 	//会員登録処理
 	@PostMapping("/signup")
-	public String signup(@ModelAttribute @Validated UserRegisterForm signupForm, BindingResult bindingResult, RedirectAttributes redirectAttributes, HttpServletRequest httpServletRequest) {
+	public String signup(@ModelAttribute @Validated SignupForm signupForm, BindingResult bindingResult, RedirectAttributes redirectAttributes, HttpServletRequest httpServletRequest) {
 		if(userService.isEmailRegistered(signupForm.getEmail())) {
 			FieldError fieldError = new FieldError(bindingResult.getObjectName(), "email", "すでに登録済みのメールアドレスです。");
 			bindingResult.addError(fieldError);
@@ -128,17 +128,6 @@ public class AuthController {
 		
 		return "redirect:/";
 	}
-	
-	//@カード情報登録処理
-	/*@PostMapping("/signup/verify/create")
-	public String cardCreate(@ModelAttribute @Validated CardRegisterForm cardRegisterForm, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
-		User user = userRepository.findByEmail(cardRegisterForm.getEmail());
-		
-		cardService.create(user, cardRegisterForm);
-		redirectAttributes.addFlashAttribute("cardSuccessMessage", "会員登録が完了しました。");
-		
-		return "redirect:/";
-	}*/
 	
 	//トークン再発行処理
 	@PostMapping("/reset/token")

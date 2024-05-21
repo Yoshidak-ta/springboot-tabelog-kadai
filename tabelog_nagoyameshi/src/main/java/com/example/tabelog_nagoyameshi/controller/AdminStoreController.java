@@ -51,11 +51,11 @@ public class AdminStoreController {
 			}
 		}else if(price != null) {
 			if(order != null && order.equals("createdAtDesc")) {
-				storePage = storeRepository.findByMinimumBudgetLessThanEqualOrderByCreatedAtDesc(price, pageable);
+				storePage = storeRepository.findByMaximumBudgetLessThanEqualOrderByCreatedAtDesc(price, pageable);
 			}else if(order != null && order.equals("minimumBudgetAsc")) {
-				storePage = storeRepository.findByMinimumBudgetLessThanEqualOrderByMinimumBudgetAsc(price, pageable);
+				storePage = storeRepository.findByMaximumBudgetLessThanEqualOrderByMinimumBudgetAsc(price, pageable);
 			}else{
-				storePage = storeRepository.findByMinimumBudgetLessThanEqualOrderByFuriganaAsc(price, pageable);
+				storePage = storeRepository.findByMaximumBudgetLessThanEqualOrderByFuriganaAsc(price, pageable);
 			}
 		}else if(categoryKeyword != null && !categoryKeyword.isEmpty()) {
 			if(order != null && order.equals("createdAtDesc")) {

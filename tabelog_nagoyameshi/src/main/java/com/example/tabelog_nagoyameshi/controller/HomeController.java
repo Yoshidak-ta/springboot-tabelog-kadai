@@ -64,11 +64,11 @@ public class HomeController {
 			}
 		}else if(price != null) {
 			if(order != null && order.equals("createdAtDesc")) {
-				storePage = storeRepository.findByMinimumBudgetLessThanEqualOrderByCreatedAtDesc(price, pageable);
+				storePage = storeRepository.findByMaximumBudgetLessThanEqualOrderByCreatedAtDesc(price, pageable);
 			}else if(order != null && order.equals("minimumBudgetAsc")) {
-				storePage = storeRepository.findByMinimumBudgetLessThanEqualOrderByMinimumBudgetAsc(price, pageable);
+				storePage = storeRepository.findByMaximumBudgetLessThanEqualOrderByMinimumBudgetAsc(price, pageable);
 			}else{
-				storePage = storeRepository.findByMinimumBudgetLessThanEqualOrderByFuriganaAsc(price, pageable);
+				storePage = storeRepository.findByMaximumBudgetLessThanEqualOrderByFuriganaAsc(price, pageable);
 			}
 		}else if(categoryKeyword != null && !categoryKeyword.isEmpty()) {
 			if(order != null && order.equals("createdAtDesc")) {
@@ -89,7 +89,7 @@ public class HomeController {
 		}
 		
 		List<Category> categoryList = categoryRepository.findAll();
-		
+						
 		model.addAttribute("storePage", storePage);
 		model.addAttribute("user", user);
 		model.addAttribute("storeKeyword", storeKeyword);
@@ -105,6 +105,7 @@ public class HomeController {
 	public String show(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, @PathVariable(name = "id")Integer id, FavoriteRegisterForm favoriteRegisterForm, @PageableDefault(page = 0, size = 5, sort = "id", direction = Direction.ASC) Pageable pageable, Model model) {
 		Store store = storeRepository.getReferenceById(id);
 		Page<Review> newReview = reviewRepository.findByStoreOrderByCreatedAtDesc(store, pageable);
+		List<Review> reviewList = reviewRepository.findByStore(store);
 		
 		if(userDetailsImpl != null) {
 			User user = userDetailsImpl.getUser();
@@ -124,6 +125,7 @@ public class HomeController {
 		model.addAttribute("store", store);
 		model.addAttribute("reservationInputForm", new ReservationInputForm());
 		model.addAttribute("newReview", newReview);
+		model.addAttribute("reviewList", reviewList);
 		
 		return "show";
 	}

@@ -20,7 +20,7 @@ public class WebSecurityConfig {
 					.requestMatchers("/css/**", "/images/**", "/js/**", "/stores/**", "/", "/signup/**", "/reset/**", "/reset/token/**", "/?loggedIn", "/stripe/webhook").permitAll()
 					.requestMatchers("/prime/**").hasRole("PRIME")
 					.requestMatchers("/admin/store/**").hasRole("ADMIN_STORE")
-					.requestMatchers("/admin/apps/**").hasRole("ADMIN_APPS")
+					.requestMatchers("/admin/site/**").hasRole("ADMIN_SITE")
 					.anyRequest().authenticated()
 					)
 			.formLogin((form) -> form

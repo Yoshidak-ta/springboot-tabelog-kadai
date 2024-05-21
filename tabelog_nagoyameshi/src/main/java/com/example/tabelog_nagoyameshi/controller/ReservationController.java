@@ -2,6 +2,7 @@ package com.example.tabelog_nagoyameshi.controller;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -49,9 +50,12 @@ public class ReservationController {
 	public String reservations(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, @PageableDefault(page = 0, size = 10, sort = "id", direction = Direction.ASC)Pageable pageable, Model model) {
 		User user = userDetailsImpl.getUser();
 		
+		List<Reservation> reservationList = reservationRepository.findByUser(user);
+		
 		//予約日時が若い順で並べる
 		Page<Reservation> reservationPage = reservationRepository.findByUserOrderByBookingDateAscBookingTimeAsc(user, pageable);
 		
+		model.addAttribute("reservationList", reservationList);
 		model.addAttribute("reservationPage", reservationPage);
 		
 		return "prime/reservations/index";

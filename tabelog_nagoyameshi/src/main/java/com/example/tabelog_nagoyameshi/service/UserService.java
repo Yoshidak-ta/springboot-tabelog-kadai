@@ -7,9 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.example.tabelog_nagoyameshi.entity.Role;
 import com.example.tabelog_nagoyameshi.entity.User;
 import com.example.tabelog_nagoyameshi.form.PasswordResetForm;
+import com.example.tabelog_nagoyameshi.form.SignupForm;
 import com.example.tabelog_nagoyameshi.form.UserEditForm;
-import com.example.tabelog_nagoyameshi.form.UserRegisterForm;
-import com.example.tabelog_nagoyameshi.repository.CardRepository;
 import com.example.tabelog_nagoyameshi.repository.RoleRepository;
 import com.example.tabelog_nagoyameshi.repository.UserRepository;
 
@@ -17,19 +16,17 @@ import com.example.tabelog_nagoyameshi.repository.UserRepository;
 public class UserService {
 	private final UserRepository userRepository;
 	private final RoleRepository roleRepository;
-	private final CardRepository cardRepository;
 	private final PasswordEncoder passwordEncoder;
 	
-	public UserService(UserRepository userRepository, RoleRepository roleRepository, CardRepository cardRepository, PasswordEncoder passwordEncoder) {
+	public UserService(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
 		this.userRepository = userRepository;
 		this.roleRepository = roleRepository;
-		this.cardRepository = cardRepository;
 		this.passwordEncoder = passwordEncoder;
 	}
 	
 	//会員登録機能
 	@Transactional
-	public User create(UserRegisterForm userInputForm) {
+	public User create(SignupForm userInputForm) {
 		User user = new User();
 		Role role = roleRepository.findByRoleName2(userInputForm.getRoleName2());
 		
@@ -104,16 +101,4 @@ public class UserService {
 		userRepository.save(user);
 	}
 	
-	//サブスク解約機能
-		/*@Transactional
-		public void typeDowngrade(String subscriptionId) {
-			Card card = cardRepository.findBySubscriptionId(subscriptionId);
-			User user = card.getUser();
-			Type type = typeRepository.getReferenceById(1);
-			
-			user.setType(type);
-			
-			userRepository.save(user);
-		}*/
-
 }

@@ -12,16 +12,16 @@
 			<!--ヘッダー-->
 			<div th:replace="~{fragment :: header}"></div>
 			
-			<div th:if="${updateSuccessMessage}" class="alert alert-info">
-				<span th:text="${updateSuccessMessage}"></span>
-			</div>
-			
-			<div th:if="${param.upgrade}" class="alert alert-info">
-				有料会員にアップグレードしました。
-			</div>
-			
 			<main>
 				<div class="container pt-4 pb-5 nagoyameshi-container">
+					<div th:if="${updateSuccessMessage}" class="alert alert-info">
+        				<span th:text="${updateSuccessMessage}"></span>
+	        		</div>
+			
+		        	<div th:if="${param.upgrade}" class="alert alert-info">
+			        	有料会員にアップグレードしました。
+	    		    </div>
+	    		    
 					<div class="row justify-content-center">
 						<div class="col-xl-5 col-lg-6 col-md-8">
 							<nav class="my-3" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">

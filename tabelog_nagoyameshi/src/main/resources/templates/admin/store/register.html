@@ -56,7 +56,7 @@
 									</div>
 									<div class="col-md-8">
 										<div th:if="${#fields.hasErrors('storeName')}" class="text-danger small mb-2" th:errors="*{storeName}"></div>
-										<input type="text" class="form-control" th:field="*{storeName}" autocomplete="name" autofocus placeholder="寿司　常">
+										<input type="text" class="form-control" th:field="*{storeName}" autocomplete="name" autofocus placeholder="味噌かつ　鯱">
 									</div>
 								</div>
 								
@@ -71,7 +71,7 @@
 									</div>
 									<div class="col-md-8">
 										<div th:if="${#fields.hasErrors('furigana')}" class="text-danger small mb-2" th:errors="*{furigana}"></div>
-										<input type="text" class="form-control" th:field="*{furigana}" placeholder="スシ　ツネ">
+										<input type="text" class="form-control" th:field="*{furigana}" placeholder="ミソカツ　シャチホコ">
 									</div>
 								</div>
 								
@@ -86,7 +86,7 @@
 									</div>
 									<div class="col-md-8">
 										<div th:if="${#fields.hasErrors('alphabet')}" class="text-danger small mb-2" th:errors="*{alphabet}"></div>
-										<input type="text" class="form-control" th:field="*{alphabet}" placeholder="Sushi Tsune">
+										<input type="text" class="form-control" th:field="*{alphabet}" placeholder="Misokatsu Syachihoko">
 									</div>
 								</div>
 								
@@ -118,7 +118,7 @@
 									</div>
 									<div class="col-md-8">
 										<div th:if="${#fields.hasErrors('description')}" class="text-danger small mb-2" th:errors="*{description}"></div>
-										<input type="text" class="form-control" th:field="*{description}" placeholder="説明を入力してください。">
+										<input type="text" class="form-control" th:field="*{description}" placeholder="こだわりの豚肉と秘伝の味噌だれを使った絶品味噌かつ">
 									</div>
 								</div>
 								
@@ -208,7 +208,7 @@
 									</div>
 									<div class="col-md-8">
 										<div th:if="${#fields.hasErrors('address')}" class="text-danger small mb-2" th:errors="*{address}"></div>
-										<input type="text" class="form-control" th:field="*{address}" placeholder="愛知県名古屋市港区X-XX-XX">
+										<input type="text" class="form-control" th:field="*{address}" placeholder="愛知県名古屋市中区X-XX-XX">
 									</div>
 								</div>
 								
@@ -223,7 +223,7 @@
 									</div>
 									<div class="col-md-8">
 										<div th:if="${#fields.hasErrors('phoneNumber')}" class="text-danger small mb-2" th:errors="*{phoneNumber}"></div>
-										<input type="text" class="form-control" th:field="*{phoneNumber}" autocomplete="tel-national" placeholder="052-000-0000">
+										<input type="text" class="form-control" th:field="*{phoneNumber}" autocomplete="tel-national" placeholder="123-4567-8910">
 									</div>
 								</div>
 								
@@ -242,7 +242,9 @@
 									</div>
 								</div>
 								
-								<button type="submit" class="btn text-white shadow-sm w-50 nagoyameshi-btn">登録する</button>
+								<div class="d-flex justify-content-center pt-3">
+							    	<button type="submit" class="btn text-white shadow-sm w-50 nagoyameshi-btn">登録する</button>
+								</div>
 							</form>
 						</div>
 					</div>

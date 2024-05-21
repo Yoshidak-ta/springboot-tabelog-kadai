@@ -13,6 +13,7 @@ import com.example.tabelog_nagoyameshi.entity.User;
 
 public interface FavoriteRepository extends JpaRepository<Favorite, Integer> {
 	public List<Favorite> findByStore(Store store);
+	public List<Favorite> findByUser(User user);
 	public Page<Favorite> findByUser(User user, Pageable pageable);
 	
 	@Transactional

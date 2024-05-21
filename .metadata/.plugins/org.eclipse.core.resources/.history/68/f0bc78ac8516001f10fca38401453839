@@ -1,0 +1,5 @@
+package com.example.tabelog_nagoyameshi.repository;
+
+public interface TopImageRepository extends JpaRepository<TopImage, Integer> {
+
+}

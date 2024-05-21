@@ -38,8 +38,8 @@
 									</div>
 									<div class="col-md-8">
 										<div th:if="${#fields.hasErrors('stars')}" class="text-danger small mb-2" th:errors="*{stars}"></div>
-										<select name="stars">
-											<option value="" hidden>選択してください</option>
+										<select class="form-select nagoyameshi-star" name="stars">
+											<option value="" hidden></option>
 											<option value="☆☆☆☆☆" th:selected="${stars == '&#9734&#9734&#9734&#9734&#9734'}">&#9734&#9734&#9734&#9734&#9734</option>
 											<option value="★☆☆☆☆" th:selected="${stars == '&#9733&#9734&#9734&#9734&#9734'}">&#9733&#9734&#9734&#9734&#9734</option>
 											<option value="★★☆☆☆" th:selected="${stars == '&#9733&#9733&#9734&#9734&#9734'}">&#9733&#9733&#9734&#9734&#9734</option>
@@ -64,23 +64,6 @@
 										<textarea th:field="*{reviewComment}" class="form-control" cols="50" rows="10"></textarea>
 									</div>
 								</div>
-								
-								<div class="form-group row mb-3">
-									<div class="col-md-4">
-										<label for="imageFile" class="col-form-label text-md-left fw-bold">
-											<div class="d-flex align-items-center">
-												<span class="me-1">写真</span>
-											</div>
-										</label>
-									</div>
-									<div class="col-md-8">
-										<div th:if="${#fields.hasErrors('photoName')}" class="text-danger small mb-2" th:errors="*{photoName}"></div>
-										<input type="file" class="form-control" th:field="*{photoName}">
-									</div>
-								</div>
-								
-								<!--選択された画像の表示場所-->
-								<div class="row" id="imagePreview"></div>
 								
 								<div>
 									<button type="submit" class="btn text-white shadow-sm w-50 nagoyameshi-btn">投稿</button>

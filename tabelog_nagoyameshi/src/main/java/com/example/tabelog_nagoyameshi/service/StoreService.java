@@ -37,7 +37,7 @@ public class StoreService {
 		if(!photoName.isEmpty()) {
 			String imageName = photoName.getOriginalFilename();
 			String hashedImageName = generateNewFileName(imageName);
-			Path filePath = Paths.get("src/main/resources/static/stores/" + hashedImageName);
+			Path filePath = Paths.get("src/main/resources/static/images/stores/" + hashedImageName);
 			copyImageFile(photoName, filePath);
 			store.setPhotoName(hashedImageName);
 		}
@@ -86,7 +86,7 @@ public class StoreService {
 		if(!photoName.isEmpty()) {
 			String imageName = photoName.getOriginalFilename();
 			String hashedImageName = generateNewFileName(imageName);
-			Path filePath = Paths.get("src/main/resources/static/storage/" + hashedImageName);
+			Path filePath = Paths.get("src/main/resources/static/images/stores/" + hashedImageName);
 			copyImageFile(photoName, filePath);
 			store.setPhotoName(hashedImageName);
 		}

@@ -22,20 +22,44 @@
 							</ol>
 						</nav>
 						
-						<div>
-							<div class="row row-cols-lg-5 row-cols-2 g-3 mb-5">
-								<div class="col" th:each="favoritesPage : ${favoritesPage}">
-									<a th:href="@{/login/__${favoritesPage.getId()}__}" class="link-dark nagoyameshi-card-link">
-										<div class="card h-100">
-											<img th:if="${favoritesPage.getStore().getPhotoName()}" th:src="@{/images/stores/__${favoritesPage.getStore().getPhotoName()}__}" class="w-100" alt="店舗画像">
-											<img th:unless="${favoritesPage.getStore().getPhotoName()}" th:src="@{/images/noImage.png}" class="w-100" alt="NO IMAGE">
-											<div class="card-body">
-												<h3 class="card-title mb-3" th:text="${favoritesPage.getStore().getStoreName()}"></h3>
-											</div>
-										</div>
-									</a>
+						<h1 class="mb-2 text-center">お気に入り一覧</h1>
+						
+						<div th:if="${favoriteList.isEmpty()}" class="border-top pt-4">
+							<h2 class="text-center fw-bold">お気に入り店舗はありません</h2>
+						</div>
+
+						<div class="mb-3" th:each="favorites : ${favoritesPage}">
+							<a th:href="@{/login/__${favorites.getStore().getId()}__}" class="link-dark nagoyameshi-card-link">
+								<div class="card h-100">
+									<div class="row g-0">
+										<div class="col-md-4">
+								        	<img th:if="${favorites.getStore().getPhotoName()}" th:src="@{/images/stores/__${favorites.getStore().getPhotoName()}__}" class="w-100" alt="店舗画像">
+					        				<img th:unless="${favorites.getStore().getPhotoName()}" th:src="@{/images/noImage.png}" class="w-100" alt="NO IMAGE">
+						        		</div>
+						        		<div class="col-md-8">
+							       	    	<div class="card-body">
+						    		        	<h3 class="card-title mb-3" th:text="${favorites.getStore().getStoreName()}"></h3>
+									        	<small class="text-muted" th:text="${favorites.getStore().getFurigana()}"></small>
+										        	
+									        	<hr class="mb-3">
+										        	
+									        	<p class="card-text mb-2">
+													<small class="text-muted" th:text="${favorites.getStore().getCategory().getCategoryName()}"></small>
+												</p>
+													
+												<p class="card-text mb-2">
+													<span th:text="${favorites.getStore().getDescription()}"></span>
+												</p>
+													
+												<p class="card-text">
+                                                     <small class="text-muted" th:text="${favorites.getStore().getAddress()}"></small><br>
+                                                     <small class="text-muted" th:text="${favorites.getStore().getPhoneNumber()}"></small>                                                      
+                                                 </p>  
+									        </div>
+									    </div>
+									</div>
 								</div>
-							</div>
+							</a>
 						</div>
 					</div>
 				</div>

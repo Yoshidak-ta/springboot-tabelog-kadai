@@ -46,7 +46,7 @@ public class StripeService {
 					.addLineItem(
 							SessionCreateParams.LineItem.builder()
 								.setQuantity(1L)
-								.setPrice("price_1PHmbYG3807R4hwqmO8lBMPK")
+								.setPrice("price_1PHlpEG3807R4hwqIh3PGdoj")
 								.build()
 								)
 					.build();
@@ -74,7 +74,7 @@ public class StripeService {
 					.addLineItem(
 							SessionCreateParams.LineItem.builder()
 								.setQuantity(1L)
-								.setPrice("price_1PHmbYG3807R4hwqmO8lBMPK")
+								.setPrice("price_1PHlpEG3807R4hwqIh3PGdoj")
 								.build()
 								)
 					.build();
@@ -139,7 +139,6 @@ public class StripeService {
 			String subscriptionId = subscription.getId();
 			
 			cardRepository.deleteBySubscriptionId(subscriptionId);
-			//userService.typeDowngrade(subscriptionId);
 		});
 	}
 
