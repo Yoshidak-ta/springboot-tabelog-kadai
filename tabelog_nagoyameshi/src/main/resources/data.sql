@@ -44,19 +44,19 @@ INSERT IGNORE INTO stores(id, category_id, store_name, furigana, alphabet, photo
 INSERT IGNORE INTO stores(id, category_id, store_name, furigana, alphabet, photo_name, description, opening_hour, closing_hour, closed_day, minimum_budget, maximum_budget, address, phone_number, seats)VALUE(11, 11, '喫茶モーニング', 'キッサモーニング', 'Kissamo-ningu', 'store11.jpg', 'ゆったりとした古民家カフェで心も体も満たされるモーニングを', '08:00', '16:00', '火曜日', 500, 1200, '愛知県名古屋市中村区XXX-OO', '052-113-4230', 30);
 
 
---reservesテーブル
-INSERT IGNORE INTO reserves(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(1, 1, 1, '2024-06-01', '17:00', 4);
-INSERT IGNORE INTO reserves(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(2, 1, 1, '2024-06-02', '17:00', 4);
-INSERT IGNORE INTO reserves(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(3, 1, 1, '2024-06-03', '17:00', 4);
-INSERT IGNORE INTO reserves(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(4, 1, 1, '2024-06-04', '17:00', 4);
-INSERT IGNORE INTO reserves(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(5, 1, 1, '2024-06-05', '17:00', 4);
-INSERT IGNORE INTO reserves(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(6, 1, 1, '2024-06-06', '17:00', 4);
-INSERT IGNORE INTO reserves(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(7, 1, 2, '2024-06-01', '17:00', 4);
-INSERT IGNORE INTO reserves(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(8, 1, 1, '2024-06-01', '18:00', 4);
-INSERT IGNORE INTO reserves(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(9, 1, 3, '2024-06-01', '17:00', 4);
-INSERT IGNORE INTO reserves(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(10, 1, 2, '2024-06-02', '17:00', 4);
-INSERT IGNORE INTO reserves(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(11, 1, 2, '2024-06-03', '17:00', 4);
-INSERT IGNORE INTO reserves(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(12, 2, 1, '2024-06-01', '17:00', 4);
+--reservationsテーブル
+INSERT IGNORE INTO reservations(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(1, 1, 1, '2024-06-01', '17:00', 4);
+INSERT IGNORE INTO reservations(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(2, 1, 1, '2024-06-02', '17:00', 4);
+INSERT IGNORE INTO reservations(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(3, 1, 1, '2024-06-03', '17:00', 4);
+INSERT IGNORE INTO reservations(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(4, 1, 1, '2024-06-04', '17:00', 4);
+INSERT IGNORE INTO reservations(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(5, 1, 1, '2024-06-05', '17:00', 4);
+INSERT IGNORE INTO reservations(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(6, 1, 1, '2024-06-06', '17:00', 4);
+INSERT IGNORE INTO reservations(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(7, 1, 2, '2024-06-01', '17:00', 4);
+INSERT IGNORE INTO reservations(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(8, 1, 1, '2024-06-01', '18:00', 4);
+INSERT IGNORE INTO reservations(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(9, 1, 3, '2024-06-01', '17:00', 4);
+INSERT IGNORE INTO reservations(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(10, 1, 2, '2024-06-02', '17:00', 4);
+INSERT IGNORE INTO reservations(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(11, 1, 2, '2024-06-03', '17:00', 4);
+INSERT IGNORE INTO reservations(id, user_id, store_id, booking_date, booking_time, number_of_people)VALUE(12, 2, 1, '2024-06-01', '17:00', 4);
 
 --reviewsテーブル
 INSERT IGNORE INTO reviews(id, user_id, store_id, stars, review_comment)VALUE(1, 1, 1, '★★★☆☆', '雰囲気のいいカフェでした。');

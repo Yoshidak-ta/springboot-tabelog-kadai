@@ -7,7 +7,6 @@ INDEX VERSION 1.131+C:\pleiades\2022-12\kadai_002\.metadata\.plugins\org.eclipse
 3926578464.index
 2673098888.index
 1295138543.index
-2425756345.index
 143132080.index
 3804472120.index
 2746553181.index
@@ -104,7 +103,6 @@ INDEX VERSION 1.131+C:\pleiades\2022-12\kadai_002\.metadata\.plugins\org.eclipse
 1447535991.index
 1186715007.index
 2783527716.index
-291116133.index
 2795105360.index
 2759709460.index
 944928742.index

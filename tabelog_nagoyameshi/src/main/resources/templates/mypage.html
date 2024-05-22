@@ -97,8 +97,8 @@
 							</div>
 							
 							<!--決済方法の変更及びサブスクキャンセル-->
-							<div class="d-flex justify-content-end align-items-end mb-3">
-								<div sec:authorize="hasRole('ROLE_PRIME')">
+							<div sec:authorize="hasRole('ROLE_PRIME')">
+							    <div class="d-flex justify-content-end align-items-end mb-3">
 									<a th:href="@{/login/mypage/subscription}">決済情報の変更及びサブスクリプションのキャンセルページ</a>
 								</div>
 							</div>
