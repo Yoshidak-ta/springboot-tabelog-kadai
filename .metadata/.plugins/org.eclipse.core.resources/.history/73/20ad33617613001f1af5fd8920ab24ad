@@ -1,8 +1,0 @@
-package com.example.tabelog_nagoyameshi.repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface RoleRepository extends JpaRepository<Role, Integer> {
-	public Role findByRoleName2(String roleName2);
-
-}

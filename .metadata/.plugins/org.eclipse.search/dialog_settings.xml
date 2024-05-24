@@ -29,7 +29,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="samurai"/>
+			<item key="textPattern" value="tabeog"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -44,7 +44,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="apps"/>
+			<item key="textPattern" value="application.yml"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -56,7 +56,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="review.getPhotoName"/>
+			<item key="textPattern" value="stripe listen"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -65,10 +65,10 @@
 			</list>
 		</section>
 		<section name="HISTORY3">
-			<item key="ignoreCase" value="false"/>
+			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="storage"/>
+			<item key="textPattern" value="cardRegister"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -77,10 +77,10 @@
 			</list>
 		</section>
 		<section name="HISTORY4">
-			<item key="ignoreCase" value="false"/>
+			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="edit"/>
+			<item key="textPattern" value="reserves"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -89,10 +89,10 @@
 			</list>
 		</section>
 		<section name="HISTORY5">
-			<item key="ignoreCase" value="false"/>
+			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="nagoyameshi-btn"/>
+			<item key="textPattern" value="createStripe"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -101,10 +101,10 @@
 			</list>
 		</section>
 		<section name="HISTORY6">
-			<item key="ignoreCase" value="false"/>
+			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="prime/"/>
+			<item key="textPattern" value="updateStripe"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -113,10 +113,10 @@
 			</list>
 		</section>
 		<section name="HISTORY7">
-			<item key="ignoreCase" value="false"/>
+			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="paidUser"/>
+			<item key="textPattern" value="checkout"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -125,10 +125,10 @@
 			</list>
 		</section>
 		<section name="HISTORY8">
-			<item key="ignoreCase" value="false"/>
+			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="primeUser"/>
+			<item key="textPattern" value="signupevent"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -137,10 +137,10 @@
 			</list>
 		</section>
 		<section name="HISTORY9">
-			<item key="ignoreCase" value="false"/>
+			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="adminStore"/>
+			<item key="textPattern" value="signupform"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -149,10 +149,10 @@
 			</list>
 		</section>
 		<section name="HISTORY10">
-			<item key="ignoreCase" value="false"/>
+			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="adminApps"/>
+			<item key="textPattern" value="userRegisterForm"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -161,10 +161,10 @@
 			</list>
 		</section>
 		<section name="HISTORY11">
-			<item key="ignoreCase" value="false"/>
+			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="ADMINAPPS"/>
+			<item key="textPattern" value="samurai"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -178,7 +178,7 @@
 	</section>
 	<section name="DialogBounds_SearchDialog">
 		<item key="DIALOG_X_ORIGIN" value="468"/>
-		<item key="DIALOG_Y_ORIGIN" value="62"/>
+		<item key="DIALOG_Y_ORIGIN" value="8"/>
 		<item key="DIALOG_WIDTH" value="616"/>
 		<item key="DIALOG_HEIGHT" value="459"/>
 		<item key="DIALOG_FONT_NAME" value="1|Yu Gothic UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Yu Gothic UI"/>

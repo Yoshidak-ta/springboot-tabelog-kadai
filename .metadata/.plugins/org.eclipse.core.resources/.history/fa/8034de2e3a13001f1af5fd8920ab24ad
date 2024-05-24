@@ -1,8 +1,0 @@
-package com.example.tabelog_nagoyameshi.form;
-
-@Data
-public class CategoryRegisterForm {
-	@NotBlank(message = "カテゴリ名を入力してください。")
-	private String categoryName;
-
-}
