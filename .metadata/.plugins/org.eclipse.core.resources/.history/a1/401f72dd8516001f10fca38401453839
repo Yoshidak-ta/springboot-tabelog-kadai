@@ -1,9 +1,0 @@
-package com.example.tabelog_nagoyameshi.repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.example.tabelog_nagoyameshi.entity.TopImage;
-
-public interface TopImageRepository extends JpaRepository<TopImage, Integer> {
-
-}

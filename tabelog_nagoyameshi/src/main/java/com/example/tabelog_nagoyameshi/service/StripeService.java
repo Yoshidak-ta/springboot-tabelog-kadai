@@ -34,32 +34,6 @@ public class StripeService {
 		this.cardRepository = cardRepository;
 	}
 	
-	//セッションを作成し、Stripeに必要な情報を返す（会員登録時）
-	public String createStripeSession(HttpServletRequest httpServletRequest) {
-		Stripe.apiKey = stripeApiKey;
-		String requestUrl = new String(httpServletRequest.getRequestURL());
-		SessionCreateParams params = 
-				SessionCreateParams.builder()
-					.setSuccessUrl(requestUrl.replaceAll("/signup/verify", "") + "/signup/verify?create")
-					.setMode(SessionCreateParams.Mode.SUBSCRIPTION)
-					.addPaymentMethodType(SessionCreateParams.PaymentMethodType.CARD)
-					.addLineItem(
-							SessionCreateParams.LineItem.builder()
-								.setQuantity(1L)
-								.setPrice("price_1PHlpEG3807R4hwqIh3PGdoj")
-								.build()
-								)
-					.build();
-		
-		try {
-			Session session = Session.create(params);
-			return session.getId();
-		}catch (StripeException e){
-			e.printStackTrace();
-			return "";
-		}
-	}
-	
 	//セッションを作成し、Stripeに必要な情報を返す（アップグレード）
 	public String updateStripeSession(HttpServletRequest httpServletRequest) {
 		Stripe.apiKey = stripeApiKey;
@@ -91,10 +65,7 @@ public class StripeService {
 	// セッションからメールアドレスと顧客IDを取得し、CardServiceクラスを介してデータベースに登録する
 	public void processSessionCompleted(Event event) {
 		Optional<StripeObject> optionalStripeObject = event.getDataObjectDeserializer().getObject();
-		optionalStripeObject.ifPresentOrElse(stripeObject -> {
-			System.out.println("成功");
-			System.out.println("Stripe API Version: " + event.getApiVersion());
-			System.out.println("stripe-java Version: " + Stripe.VERSION);
+		optionalStripeObject.ifPresent(stripeObject -> {
 			Session session = (Session)stripeObject;
 			String customerId = session.getCustomer();
 			String subscriptionId = session.getSubscription();
@@ -102,37 +73,16 @@ public class StripeService {
 			try {
 				Customer customer = Customer.retrieve(customerId);
 				String email = customer.getEmail();
+				System.out.println(email);
 				
 				cardService.create(email, customerId, subscriptionId);
 				userService.roleUpdate(email);
 			}catch (StripeException e){
 				e.printStackTrace();
 			}
-		},
-		() -> {
-			System.out.println("失敗");
-			System.out.println("Stripe API Version: " + event.getApiVersion());
-			System.out.println("stripe-java Version: " + Stripe.VERSION);
 		});
 	}
-//	public void processSessionCompleted(Event event) {
-//		Optional<StripeObject> optionalStripeObject = event.getDataObjectDeserializer().getObject();
-//		optionalStripeObject.ifPresent(stripeObject -> {
-//			Session session = (Session)stripeObject;
-//			String customerId = session.getCustomer();
-//			String subscriptionId = session.getSubscription();
-//			
-//			try {
-//				Customer customer = Customer.retrieve(customerId);
-//				String email = customer.getEmail();
-//				
-//				cardService.create(email, customerId, subscriptionId);
-//				userService.roleUpdate(email);
-//			}catch (StripeException e){
-//				e.printStackTrace();
-//			}
-//		});
-//	}
+
 	
 	//カスタマーポータルセッションの作成
 	public String portalStripeSession(User user, HttpServletRequest httpServletRequest) {

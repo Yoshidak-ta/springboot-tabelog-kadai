@@ -45,7 +45,7 @@ public class StripeWebhookController {
 			case "checkout.session.completed":
 				stripeService.processSessionCompleted(event);
 				break;
-			case "customer.subscription.deleted":
+			case "customer.subscription.updated":
 				stripeService.delete(event);
 				break;
 			

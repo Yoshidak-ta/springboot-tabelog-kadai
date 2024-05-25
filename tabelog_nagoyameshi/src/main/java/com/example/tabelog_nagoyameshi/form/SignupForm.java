@@ -31,6 +31,4 @@ public class SignupForm {
 	@NotBlank(message = "属性を選択してください。")
 	private String roleName2;
 	
-	private String cardNumber;
-
 }

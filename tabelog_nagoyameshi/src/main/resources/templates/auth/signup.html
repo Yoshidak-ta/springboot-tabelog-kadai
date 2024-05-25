@@ -122,24 +122,9 @@
 										<div th:if="${#fields.hasErrors('roleName2')}" class="text-danger small mb-2" th:errors="*{roleName2}"></div>
 										<select name="roleName2" th:field="*{roleName2}">
 											<option value="" hidden>選択してください</option>
-											<option value="無料会員" th:selected="${roleName2 == '無料会員'}">無料会員</option>
-											<option id="expand-option" value="有料会員" th:selected="${roleName2 == '有料会員'}">有料会員</option>
+											<option value="無料会員" th:selected="${roleName2 == '無料会員'}">一般会員</option>
 											<option value="店舗管理者" th:selected="${roleName2 == '店舗管理者'}">店舗管理者</option>
 										</select>
-									</div>
-								</div>
-								
-								<div id="expandable" class="form-group row mb-3">
-									<div class="col-md-5">
-										<label class="col-form-label text-md-left fw-bold">
-											<div class="d-flex align-items-center">
-												<span class="me-1">カード番号</span>
-												<span class="badge bg-danger">有料会員は必須</span>
-											</div>
-										</label>
-									</div>
-									<div class="col-md-7">
-										<input type="text" class="form-control">
 									</div>
 								</div>
 								
@@ -160,23 +145,6 @@
 			<div th:replace="~{fragment :: footer}"></div>
 		</div>
 		
-		<script>
-		document.addEventListener('DOMContentLoaded', function() {
-		// select要素を取得する。
-		var selectEl = document.querySelector('select[name="roleName2"]');
-		
-		// select要素の変更イベントにイベントリスナーを追加する。
-		selectEl.addEventListener('change', function() {
-			// 「有料会員」が選択された場合に表示、それ以外の場合には非表示にする。
-			var expandable = document.getElementById('expandable');
-			if (selectEl.value === '有料会員') {
-				expandable.style.display = 'block';
-			} else {
-				expandable.style.display = 'none';
-				}
-			});
-		});
-		</script>
 		<div th:replace="~{fragment :: scripts}"></div>
 	</body>
 </html>

@@ -26,15 +26,15 @@ public class UserService {
 	
 	//会員登録機能
 	@Transactional
-	public User create(SignupForm userInputForm) {
+	public User create(SignupForm signupForm) {
 		User user = new User();
-		Role role = roleRepository.findByRoleName2(userInputForm.getRoleName2());
+		Role role = roleRepository.findByRoleName2(signupForm.getRoleName2());
 		
-		user.setUserName(userInputForm.getUserName());
-		user.setFurigana(userInputForm.getFurigana());
-		user.setPhoneNumber(userInputForm.getPhoneNumber());
-		user.setEmail(userInputForm.getEmail());
-		user.setPassword(passwordEncoder.encode(userInputForm.getPassword()));
+		user.setUserName(signupForm.getUserName());
+		user.setFurigana(signupForm.getFurigana());
+		user.setPhoneNumber(signupForm.getPhoneNumber());
+		user.setEmail(signupForm.getEmail());
+		user.setPassword(passwordEncoder.encode(signupForm.getPassword()));
 		user.setRole(role);
 		user.setEnabled(false);
 		

@@ -1,4 +1,0 @@
-spring:
-  profiles:
-    active: dev
-0db068d992a9f273b5708525bf22c87e2de088ae029a202cfc3e5dd5536f

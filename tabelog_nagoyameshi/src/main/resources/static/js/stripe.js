@@ -12,7 +12,7 @@ if (paymentButton) {
 
 if (updateButton) {
 	updateButton.addEventListener('click', () =>  {
-		if(portalSessionUrl  && portalSessionUrl !== "portalSessionUrl"){
+		if(portalSessionUrl && portalSessionUrl !== "portalSessionUrl"){
 			window.location.href = portalSessionUrl; // カスタマーポータルのURLにリダイレクト
 		}else{
 			console.log('カスタマーポータルセッションのURLが見つかりません');

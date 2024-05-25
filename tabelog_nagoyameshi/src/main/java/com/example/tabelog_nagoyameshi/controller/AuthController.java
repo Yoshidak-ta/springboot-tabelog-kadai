@@ -20,7 +20,6 @@ import com.example.tabelog_nagoyameshi.form.SignupForm;
 import com.example.tabelog_nagoyameshi.form.VerificationTokenEditForm;
 import com.example.tabelog_nagoyameshi.repository.UserRepository;
 import com.example.tabelog_nagoyameshi.repository.VerificationTokenRepository;
-import com.example.tabelog_nagoyameshi.service.StripeService;
 import com.example.tabelog_nagoyameshi.service.UserService;
 import com.example.tabelog_nagoyameshi.service.VerificationTokenService;
 
@@ -32,16 +31,14 @@ public class AuthController {
 	private final VerificationTokenRepository verificationTokenRepository;
 	private final UserService userService;
 	private final VerificationTokenService verificationTokenService;
-	private final StripeService stripeService;
 	private final SignupEventPublisher signupEventPublisher;
 	private final ResetEventPublisher resetEventPublisher;
 	
-	public AuthController(UserRepository userRepository, VerificationTokenRepository verificationTokenRepository, UserService userService, VerificationTokenService verificationTokenService, StripeService stripeService, SignupEventPublisher signupEventPublisher, ResetEventPublisher resetEventPublisher) {
+	public AuthController(UserRepository userRepository, VerificationTokenRepository verificationTokenRepository, UserService userService, VerificationTokenService verificationTokenService, SignupEventPublisher signupEventPublisher, ResetEventPublisher resetEventPublisher) {
 		this.userRepository = userRepository;
 		this.verificationTokenRepository = verificationTokenRepository;
 		this.userService = userService;
 		this.verificationTokenService = verificationTokenService;
-		this.stripeService = stripeService;
 		this.signupEventPublisher = signupEventPublisher;
 		this.resetEventPublisher = resetEventPublisher;
 	}
@@ -67,11 +64,9 @@ public class AuthController {
 			User user = verificationToken.getUser();
 			userService.enableUser(user);
 			String successMessage = "会員登録が完了しました。";
-			String sessionId = stripeService.createStripeSession(httpServletRequest);
 			
 			model.addAttribute("successMessage", successMessage);
 			model.addAttribute("user", user);
-			model.addAttribute("sessionId", sessionId);
 		}else {
 			String errorMessage = "トークンが無効です。";
 			model.addAttribute("errorMessage", errorMessage);
