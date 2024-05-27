@@ -2,12 +2,16 @@ package com.example.tabelog_nagoyameshi.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import com.example.tabelog_nagoyameshi.StringToTimeConverter;
 
 @Configuration
 @EnableWebSecurity
@@ -42,6 +46,20 @@ public class WebSecurityConfig {
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
+	}
+	
+	@Configuration
+	public class WebConfig implements WebMvcConfigurer {
+	    private final StringToTimeConverter stringToTimeConverter;
+
+	    public WebConfig(StringToTimeConverter stringToTimeConverter) {
+	        this.stringToTimeConverter = stringToTimeConverter;
+	    }
+
+	    @Override
+	    public void addFormatters(FormatterRegistry registry) {
+	        registry.addConverter(stringToTimeConverter);
+	    }
 	}
 
 }

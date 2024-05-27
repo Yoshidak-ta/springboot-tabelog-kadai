@@ -133,7 +133,7 @@
 									</div>
 									<div class="col-md-8">
 										<div th:if="${#fields.hasErrors('openingHour')}" class="text-danger small mb-2" th:errors="*{openingHour}"></div>
-										<input type="text" class="form-control" th:field="*{openingHour}" placeholder="00:00:00の形式で入力 例）8時→08:00:00">
+										<input type="time" class="form-control" th:field="*{openingHour}" placeholder="08:00">
 									</div>
 								</div>
 								
@@ -148,7 +148,7 @@
 									</div>
 									<div class="col-md-8">
 										<div th:if="${#fields.hasErrors('closingHour')}" class="text-danger small mb-2" th:errors="*{closingHour}"></div>
-										<input type="text" class="form-control" th:field="*{closingHour}" placeholder="00:00:00の形式で入力 例）23時→23:00:00">
+										<input type="time" class="form-control" th:field="*{closingHour}" placeholder="23:00">
 									</div>
 								</div>
 								
