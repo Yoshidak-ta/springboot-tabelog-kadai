@@ -65,7 +65,10 @@ public class StripeService {
 	// セッションからメールアドレスと顧客IDを取得し、CardServiceクラスを介してデータベースに登録する
 	public void processSessionCompleted(Event event) {
 		Optional<StripeObject> optionalStripeObject = event.getDataObjectDeserializer().getObject();
-		optionalStripeObject.ifPresent(stripeObject -> {
+		optionalStripeObject.ifPresentOrElse(stripeObject -> {
+			System.out.println("成功");
+			System.out.println("Stripe API Version: " + event.getApiVersion());
+			System.out.println("stripe-java Version: " + Stripe.VERSION);
 			Session session = (Session)stripeObject;
 			String customerId = session.getCustomer();
 			String subscriptionId = session.getSubscription();
@@ -73,13 +76,17 @@ public class StripeService {
 			try {
 				Customer customer = Customer.retrieve(customerId);
 				String email = customer.getEmail();
-				System.out.println(email);
 				
 				cardService.create(email, customerId, subscriptionId);
 				userService.roleUpdate(email);
 			}catch (StripeException e){
 				e.printStackTrace();
 			}
+		},
+		() -> {
+			System.out.println("失敗");
+			System.out.println("Stripe API Version: " + event.getApiVersion());
+			System.out.println("stripe-java Version: " + Stripe.VERSION);
 		});
 	}
 

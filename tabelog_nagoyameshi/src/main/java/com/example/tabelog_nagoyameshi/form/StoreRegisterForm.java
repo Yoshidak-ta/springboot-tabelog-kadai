@@ -27,13 +27,13 @@ public class StoreRegisterForm {
 	@NotBlank(message = "説明を入力してください。")
 	private String description;
 	
-	@NotNull(message = "開店時間を入力してください。")
+	@NotNull(message = "開店時間を00:00:00の形式で入力してください。")
 	private Time openingHour;
 	
-	@NotNull(message = "閉店時間を入力してください。")
+	@NotNull(message = "閉店時間を00:00:00の形式で入力してください。")
 	private Time closingHour;
 	
-	@NotNull(message = "定休日を入力してください。")
+	@NotBlank(message = "定休日を入力してください。")
 	private String closedDay;
 	
 	@NotNull(message = "予算額（最低）を入力してください。")

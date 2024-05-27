@@ -8,6 +8,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -113,9 +114,12 @@ public class AdminStoreController {
 	
 	//店舗登録処理
 	@PostMapping("/login/stores/register/create")
-	public String create(StoreRegisterForm storeRegisterForm, RedirectAttributes redirectAttributes) {
-		storeService.create(storeRegisterForm);
+	public String create(@ModelAttribute @Validated StoreRegisterForm storeRegisterForm, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+		if(bindingResult.hasErrors()) {
+			return "admin/store/register";
+		}
 		
+		storeService.create(storeRegisterForm);
 		redirectAttributes.addFlashAttribute("createSuccessMessage", "店舗登録が完了しました。");
 		
 		return "redirect:/login/stores";

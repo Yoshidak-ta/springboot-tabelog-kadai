@@ -6,6 +6,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -99,9 +100,13 @@ public class AdminSiteController {
 	
 	//カテゴリ登録処理
 	@PostMapping("/login/categories/register/create")
-	public String create(CategoryRegisterForm categoryRegisterForm, RedirectAttributes redirectAttributes) {
-		categoryService.create(categoryRegisterForm);
+	public String create(@ModelAttribute @Validated CategoryRegisterForm categoryRegisterForm, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+		if(bindingResult.hasErrors()) {
+			return "admin/site/categories/register";
+		}
 		
+		categoryService.create(categoryRegisterForm);
+
 		redirectAttributes.addFlashAttribute("createSuccessMessage", "カテゴリ登録が完了しました。");
 		
 		return "redirect:/login/categories";
