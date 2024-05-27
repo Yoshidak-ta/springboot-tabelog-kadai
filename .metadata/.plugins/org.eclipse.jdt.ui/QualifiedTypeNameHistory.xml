@@ -5,4 +5,6 @@
     <fullyQualifiedTypeName name="jakarta.persistence.Table"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.stripe.param.checkout.SessionCreateParams.SubscriptionData"/>
+    <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
+    <fullyQualifiedTypeName name="jakarta.validation.constraints.Pattern"/>
 </qualifiedTypeNameHistroy>
