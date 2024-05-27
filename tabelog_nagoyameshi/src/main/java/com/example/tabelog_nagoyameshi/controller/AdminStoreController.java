@@ -114,8 +114,10 @@ public class AdminStoreController {
 	
 	//店舗登録処理
 	@PostMapping("/login/stores/register/create")
-	public String create(@ModelAttribute @Validated StoreRegisterForm storeRegisterForm, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+	public String create(@ModelAttribute @Validated StoreRegisterForm storeRegisterForm, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
 		if(bindingResult.hasErrors()) {
+			List<Category> categoryList = categoryRepository.findAll();
+			model.addAttribute("categoryList", categoryList);
 			return "admin/store/register";
 		}
 		
