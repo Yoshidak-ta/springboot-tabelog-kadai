@@ -20,6 +20,7 @@ import com.example.tabelog_nagoyameshi.entity.Review;
 import com.example.tabelog_nagoyameshi.entity.User;
 import com.example.tabelog_nagoyameshi.form.UserEditForm;
 import com.example.tabelog_nagoyameshi.repository.ReviewRepository;
+import com.example.tabelog_nagoyameshi.repository.UserRepository;
 import com.example.tabelog_nagoyameshi.security.UserDetailsImpl;
 import com.example.tabelog_nagoyameshi.service.StripeService;
 import com.example.tabelog_nagoyameshi.service.SubscriptionService;
@@ -30,12 +31,14 @@ import jakarta.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping("/login/mypage")
 public class UserController {
+	private final UserRepository userRepository;
 	private final ReviewRepository reviewRepository;
 	private final UserService userService;
 	private final StripeService stripeService;
 	private final SubscriptionService subscriptionService;
 	
-	public UserController(ReviewRepository reviewRepository, UserService userService, StripeService stripeService, SubscriptionService subscriptionService) {
+	public UserController(UserRepository userRepository, ReviewRepository reviewRepository, UserService userService, StripeService stripeService, SubscriptionService subscriptionService) {
+		this.userRepository = userRepository;
 		this.reviewRepository = reviewRepository;
 		this.userService = userService;
 		this.stripeService = stripeService;
@@ -45,7 +48,7 @@ public class UserController {
 	//マイページ
 	@GetMapping
 	public String mypage(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, @PageableDefault(page = 0, size = 5, sort = "id", direction = Direction.ASC) Pageable pageable, Model model, HttpServletRequest httpServletRequest) {
-		User user = userDetailsImpl.getUser();
+		User user = userRepository.getReferenceById(userDetailsImpl.getUser().getId());
 		Page<Review> newStores = reviewRepository.findByOrderByStarsAsc(pageable);
 		subscriptionService.upgradeUserToPaid(user.getUserName());
 		
@@ -61,7 +64,7 @@ public class UserController {
 	//会員情報編集ページ
 	@GetMapping("/edit")
 	public String edit(@AuthenticationPrincipal UserDetailsImpl userDetailsImpl, Model model) {
-		User user = userDetailsImpl.getUser();
+		User user = userRepository.getReferenceById(userDetailsImpl.getUser().getId());
 		
 		UserEditForm userEditForm = new UserEditForm(user.getId(), user.getUserName(), user.getFurigana(), user.getPhoneNumber(), user.getEmail());
 		
