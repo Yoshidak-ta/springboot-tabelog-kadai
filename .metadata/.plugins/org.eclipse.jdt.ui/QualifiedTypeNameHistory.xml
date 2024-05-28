@@ -7,4 +7,8 @@
     <fullyQualifiedTypeName name="com.stripe.param.checkout.SessionCreateParams.SubscriptionData"/>
     <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
     <fullyQualifiedTypeName name="jakarta.validation.constraints.Pattern"/>
+    <fullyQualifiedTypeName name="java.time.LocalTime"/>
+    <fullyQualifiedTypeName name="java.sql.Time"/>
+    <fullyQualifiedTypeName name="org.springframework.core.convert.converter.Converter"/>
+    <fullyQualifiedTypeName name="com.example.tabelog_nagoyameshi.repository.UserRepository"/>
 </qualifiedTypeNameHistroy>
